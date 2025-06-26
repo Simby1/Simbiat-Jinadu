@@ -124,6 +124,13 @@ ul {
   box-shadow: var(--button-glow-shadow);
 }
 
+.screenshot {
+  width: 287px;
+  height: 134px;
+  border-radius: 3%;
+  margin-left: -10px;
+  margin-bottom: 10px;
+}
 /* --- Header --- */
 .main-header {
   background-color: var(--secondary-bg);
@@ -474,6 +481,11 @@ section h2 {
 
   p {
     font-size: 1em;
+  }
+
+  .screenshot {
+    width: 20em;
+    height: 10em;
   }
 
   /* Header adjustments for mobile */
