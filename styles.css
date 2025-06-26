@@ -2,7 +2,7 @@
 :root {
   --primary-bg: #1a0f0f; /* dark Red-Gray background */
   --secondary-bg: #2b1d1d; /* lighter Dark Red-Gray for cards/footer */
-  --text-color: #e0e0e0; /*  desaturated white for general text */
+  --text-color: #e0e0e0; /* desaturated white for general text */
   --heading-color: #f8f8f8; /* brighter white for main headings */
 
   --neon-accent: #ff073a; /* Fluorescent Red for primary neon glow */
@@ -477,6 +477,10 @@ section h2 {
   }
 
   /* Header adjustments for mobile */
+  .main-header {
+    position: relative;
+  }
+
   .header-content {
     flex-wrap: wrap;
     justify-content: space-between;
@@ -491,14 +495,25 @@ section h2 {
   }
 
   .main-nav {
-    display: none;
-    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
     background-color: var(--secondary-bg);
-    padding: var(--spacing-sm) 0;
-    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out,
+      box-shadow 0.4s ease-in-out;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    z-index: 999;
   }
+
   .main-nav.active {
-    display: flex;
+    max-height: 300px;
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .main-nav ul {
@@ -506,6 +521,7 @@ section h2 {
     gap: 10px;
     align-items: center;
     width: 100%;
+    padding: var(--spacing-sm) 0;
   }
 
   .main-nav li {
